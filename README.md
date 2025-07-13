@@ -70,14 +70,19 @@ Below are a few example test cases used to evaluate the model’s performance. E
 
 ---
 
-## 💡 Observations & Improvements
+### 📊 Observations and Possible Improvements
 
-- Kokoro TTS performed well on short and simple utterances, but showed limitations in prosody for longer sequences.
-- KL divergence correlated well with subjective quality, validating our metric choices.
-- Future improvements:
-  - Incorporate pitch/energy embeddings
-  - Fine-tune using voice cloning for better alignment
-  - Try StyleTTS for better prosodic variation
+**Observations:**
+- The model performs well on **short, casual phrases** (e.g., Example 414 and 317) with low L1/L2 and moderate KL values, indicating good waveform and prosodic alignment.
+- **Long-form or complex sentences** (e.g., Example 152 and 218) show significantly higher DTW scores, which reflects greater misalignment or timing differences between ground truth and generated audio.
+- KL divergence fluctuates more across examples, likely due to phoneme-to-acoustic mismatches in longer or emotionally expressive texts.
+
+**Possible Improvements:**
+- **Fine-tuning on longer sentences** or segmenting long texts before synthesis may help reduce DTW error and improve prosody alignment.
+- Incorporating **attention-based or duration modeling enhancements** could improve alignment for long utterances.
+- Adding **more phoneme variety** during training could help generalization to complex or expressive speech.
+- Investigate **speaker normalization** or use of style embeddings to better handle tone variation, especially in expressive or conversational inputs.
+
 
 ---
 
